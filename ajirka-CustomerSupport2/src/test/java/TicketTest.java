@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
-import org.example.ajirkacustomersupport.Ticket;
-import org.example.ajirkacustomersupport.Attachment;
+import org.example.ajirkacustomersupport2.Ticket;
+import org.example.ajirkacustomersupport2.Attachment;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TicketTest {

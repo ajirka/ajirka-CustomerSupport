@@ -1,4 +1,4 @@
-package org.example.ajirkacustomersupport;
+package org.example.ajirkacustomersupport2;
 import java.util.Arrays;
 public class Attachment {
     private String name;

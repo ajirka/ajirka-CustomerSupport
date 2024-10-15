@@ -1,4 +1,4 @@
-package org.example.ajirkacustomersupport;
+package org.example.ajirkacustomersupport2;
 import java.io.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -72,22 +72,8 @@ public class TicketServlet extends HttpServlet {
     }
 
     private void listTickets(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        PrintWriter out = response.getWriter();
-
-        out.println("<html><body><h2>Ticket Posts<h2>");
-        out.println("<a href=\"ticket?action=createTicket\">Create Ticket</a><br>");
-
-        if(ticketDB.size() == 0){
-            out.println("No ticket posts");
-        }else{
-            for(int id: ticketDB.keySet()){
-                Ticket ticket = ticketDB.get(id);
-                out.println("Ticket #" + id);
-                out.println(": <a href=\"ticket?action=view&ticketId" + id + "\">");
-                out.println(ticket.getName() + "</a><br>");
-            }
-        }
-        out.println("</body></html>");
+        request.setAttribute("ticketDatabase", ticketDB);
+        request.getRequestDispatcher("WEB-INF/jsp/view/listTickets.jsp").forward(request, response);
     }
 
     private void downloadAttachment(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -114,36 +100,12 @@ public class TicketServlet extends HttpServlet {
     private void viewTicket(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String idString = request.getParameter("ticketId");
         Ticket ticket = getTicket(idString, response);
-        PrintWriter out = response.getWriter();
-        out.println("<html><body><h2>Ticket Posts<h2>");
-        out.println("<h3>Name: " + ticket.getName() + "</h3>");
-        out.println("<h3>Subject: " + ticket.getSubject()+ "</h3>");
-        out.println("<p>Summary: "+ ticket.getTicketSummary() +"</p>");
-        if(ticket.hasImage()){
-            out.println("<a href=\"ticket?action=download&ticketId" + idString+ "&attachment="+ ticket.getAttachments().getName()+
-                    "\">" + ticket.getAttachments().getName()+ "</a><br>");
-        }
-        out.println("<a href=\"ticket\">Return to ticket list</a>");
-        out.println("</body></html>");
+        request.setAttribute("ticket", ticket);
+        request.getRequestDispatcher("WEB-INF/jsp/view/viewTicket.jsp").forward(request, response);
     }
 
     private void showTicketForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        PrintWriter out = response.getWriter();
-
-        out.println("<html><body><h2>Ticket Posts<h2>");
-        out.println("<form method=\"POST\" action = \"ticket\" enctype=\"multipart/form-data\">");
-        out.println("<input type=\"hidden\" name=\"action\" value=\"create\">");
-        out.println("Name:<br>");
-        out.println("<input type=\"text\" name=\"name\"><br>");
-        out.println("Subject:<br>");
-        out.println("<input type=\"text\" name=\"subject\"><br>");
-        out.println("Body:<br>");
-        out.println("<textarea name=\"body\" rows=\"25\" cols=\"100\"></textarea><br>");
-        out.println("<b>Attachments</b><br>");
-        out.println("<input type=\"file\" name=\"file1\"><br>");
-        out.println("<input type=\"submit\" value=\"Submit\"><br>");
-        out.println("</form></body></html>");
-
+        request.getRequestDispatcher("WEB-INF/jsp/view/ticketForm.jsp").forward(request, response);
     }
 
     private Attachment processAttachment(Part file) throws IOException{
