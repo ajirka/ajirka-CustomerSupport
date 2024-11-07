@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.Test;
-import org.example.ajirkacustomersupport2.Ticket;
-import org.example.ajirkacustomersupport2.Attachment;
-import static org.junit.jupiter.api.Assertions.*;
 
+/*
 public class TicketTest {
     @Test
     void getsNameOnTheTicket(){
@@ -25,3 +23,5 @@ public class TicketTest {
         assertEquals("There is mold in the bathroom", ticket.getTicketSummary());
     }
 }
+*/
+

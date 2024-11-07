@@ -1,8 +1,9 @@
-package org.example.ajirkacustomersupport2;
+package org.example.ajirkacustomersupport2.site;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionIdListener;
 import jakarta.servlet.http.HttpSessionListener;
+
 
 @WebListener
 public class SessionListener implements HttpSessionListener, HttpSessionIdListener {

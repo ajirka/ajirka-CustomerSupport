@@ -1,5 +1,6 @@
-package org.example.ajirkacustomersupport2;
+package org.example.ajirkacustomersupport2.site;
 import java.util.Arrays;
+
 public class Attachment {
     private String name;
     private byte[] contents;

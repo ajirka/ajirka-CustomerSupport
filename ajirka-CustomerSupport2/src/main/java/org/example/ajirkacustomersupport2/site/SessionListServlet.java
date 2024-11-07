@@ -1,11 +1,10 @@
-package org.example.ajirkacustomersupport2;
+package org.example.ajirkacustomersupport2.site;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
 @WebServlet(name="sessionListServlet", value="/sessions")
 public class SessionListServlet extends HttpServlet {
     @Override

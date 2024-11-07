@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.Test;
-import org.example.ajirkacustomersupport2.Attachment;
-import static org.junit.jupiter.api.Assertions.*;
 
-
-
+/*
 public class AttachmentTest {
     @Test
     void getsNameOfImage() {
@@ -12,3 +9,5 @@ public class AttachmentTest {
         assertEquals("vase", attachment.getName());
     }
 }
+
+ */

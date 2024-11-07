@@ -1,12 +1,9 @@
-<c:set var="now" value="<%=System.currentTimeMillis()%>" />
 <html>
 <head>
     <title>Session Window</title>
 </head>
 <body>
-    <a href="<c:url value='/login'>
-        <c:param name='logout'/>
-        </c:url>">LogOut</a>
+    <a href="<c:url value='/logout'/>">LogOut</a>
     <h2>Sessions</h2>
     Total of Active Sessions: <c:out value="${numSessions}"/>
     <ul>

@@ -1,4 +1,4 @@
-package org.example.ajirkacustomersupport2;
+package org.example.ajirkacustomersupport2.site;
 
 public class Ticket {
     private String name;
